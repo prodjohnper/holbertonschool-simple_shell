@@ -6,13 +6,14 @@
 - [Files](#files)
 - [Features](#features)
 - [Flags](#flags)
+- [Usage](#usage)
 - [Examples](#examples)
 - [Resources](#resources)
 - [Credits](#credits)
 
 ## Description
 
-This is our *Simple Shell* project for Holberton Coding School. The task for this project was to make our own version of the *Simple Shell* program, called `simple_shell`. This program receives *input* from the user and *executes* the respective *command* and prints back to the *standard output* or prints the respective *error code*.
+This is our *Simple Shell* project for Holberton Coding School. The task for this project was to make our own version of a *Unix Command Interpreter* program, called `simple_shell`. This program receives *input* from the user and *executes* the respective *command* and prints back to the *standard output*.
 
 ## Files
 
@@ -47,6 +48,36 @@ This are the commands that our program can run:
    - `-r` - Reverse order.
 2. rm
    - `-r` - Recursive removal.
+  
+## Usage
+
+To use the program, run the `./hsh` executable to open the prompt:
+
+```c
+prodjohnper@penguin:~/holbertonschool-simple_shell$ ./hsh
+($)
+```
+
+Then type the command to execute it:
+
+```c
+prodjohnper@penguin:~/holbertonschool-simple_shell$ ./hsh
+($) /bin/pwd
+Executing command: /bin/pwd
+/home/prodjohnper/holbertonschool-simple_shell
+($)
+```
+
+When done, close the program with the `exit` command or the EoF marker `CTRL+D`:
+
+```c
+prodjohnper@penguin:~/holbertonschool-simple_shell$ ./hsh
+($) /bin/pwd
+Executing command: /bin/pwd
+/home/prodjohnper/holbertonschool-simple_shell
+($) exit
+prodjohnper@penguin:~/holbertonschool-simple_shell$
+```
 
 ## Examples
 
