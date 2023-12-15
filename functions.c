@@ -88,6 +88,7 @@ void command(char *line_str)
 		execve(args[0], args, NULL);
 		perror("execve");
 		free_arrays(args);
+		printf("after execv/n");
 	}
 	else
 	{
