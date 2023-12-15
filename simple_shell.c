@@ -20,7 +20,8 @@ int main(void)
 		read_bytes = getline(&line_str, &len, stdin);
 		if (read_bytes == -1)
 		{
-			printf("\n");
+			if (isatty(fileno(stdin)) == -1)
+				printf("\n");
 			on = 0;
 		}
 		else

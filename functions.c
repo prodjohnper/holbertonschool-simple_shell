@@ -85,10 +85,9 @@ void command(char *line_str)
 	}
 	else if (pid == 0)
 	{
-		execve(args[0], args, NULL);
-		perror("execve");
+		execve(args[0], args, environ);
+		perror("execv");
 		free_arrays(args);
-		printf("after execv/n");
 	}
 	else
 	{
