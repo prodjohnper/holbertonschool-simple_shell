@@ -20,6 +20,7 @@ int main(void)
 		read_bytes = getline(&line_str, &len, stdin);
 		if (read_bytes == -1)
 		{
+			printf("\n");
 			on = 0;
 		}
 		else
@@ -38,8 +39,6 @@ int main(void)
 		}
 		if (!isatty(STDIN_FILENO))
 			fflush(stdout);
-		else
-			printf("\n");
 	}
 	free(line_str);
 	return (0);
