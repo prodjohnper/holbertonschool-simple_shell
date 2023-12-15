@@ -65,14 +65,14 @@ void command(char *line_str)
 	args = tokenizer(line_str);
 	if (args == NULL)
 	{
-		fprintf(stderr, "Error while tokenizing input\n");
+		fprintf(stderr, "Error while tokenizing input");
 		return;
 	}
 
 	if (access(args[0], X_OK) == -1)
 	{
 		perror("access");
-		fprintf(stderr, "Command '%s' not found\n", args[0]);
+		fprintf(stderr, "Command '%s' not found", args[0]);
 		free_arrays(args);
 		return;
 	}
