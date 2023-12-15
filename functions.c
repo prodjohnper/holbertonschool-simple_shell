@@ -59,6 +59,7 @@ char **tokenizer(char *line_str)
 void command(char *line_str)
 {
 	int stat;
+	char **args;
 	pid_t pid;
 
 	args = tokenizer(line_str);
