@@ -39,7 +39,7 @@ char **tokenizer(char *line_str)
 		if (!tokens[i])
 		{
 			free(dup_str);
-			free_arrays(tokens);
+			tok_free(tokens);
 			return (NULL);
 		}
 		token = strtok(NULL, " ");
@@ -48,52 +48,4 @@ char **tokenizer(char *line_str)
 
 	free(dup_str);
 	return (tokens);
-}
-
-/**
- * command - Function that prints command errors.
- *
- * @line_str: pointer.
- */
-
-void command(char *line_str)
-{
-	int stat;
-	char **args;
-	pid_t pid;
-
-	args = tokenizer(line_str);
-	if (args == NULL)
-	{
-		fprintf(stderr, "Error while tokenizing input\n");
-		return;
-	}
-
-	printf("Executing command: %s\n", args[0]);
-	if (access(args[0], X_OK) == -1)
-	{
-		perror("access");
-		fprintf(stderr, "Command '%s' not found\n", args[0]);
-		free_arrays(args);
-		return;
-	}
-	pid = fork();
-	if (pid == -1)
-	{
-		perror("fork");
-		free_arrays(args);
-		exit(EXIT_FAILURE);
-	}
-	else if (pid == 0)
-	{
-		execve(args[0], args, NULL);
-		perror("execve");
-		free_arrays(args);
-		exit(EXIT_FAILURE);
-	}
-	else
-	{
-		waitpid(pid, &stat, 0);
-		free_arrays(args);
-	}
 }
