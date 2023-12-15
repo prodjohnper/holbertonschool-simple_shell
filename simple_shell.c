@@ -37,8 +37,8 @@ int main(void)
 				command(line_str);
 			}
 		}
-		if (!isatty(STDIN_FILENO))
-			fflush(stdout);
+		/* if (!isatty(STDIN_FILENO))
+			 fflush(stdout); */
 	}
 	free(line_str);
 	return (0);
