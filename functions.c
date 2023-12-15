@@ -69,7 +69,6 @@ void command(char *line_str)
 		return;
 	}
 
-	printf("Executing command: %s\n", args[0]);
 	if (access(args[0], X_OK) == -1)
 	{
 		perror("access");
